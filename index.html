@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Pedro Henrique — desenvolvedor Full-Stack e estudante de Análise e Desenvolvimento de Sistemas.">
+
+    <title>Pedro Henrique | Desenvolvedor Full-Stack</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0D1117',
+                        neon: '#A970FF'
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        html {
+            background-color: #0D1117;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            position: relative;
+            min-height: 100vh;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* FUNDO DO SITE FIXO */
+        .site-background {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: url("./assets/portfolio-bg.png");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: blur(4px);
+            opacity: 0.4;
+            transform: scale(1.02);
+        }
+
+        /* Camada escura por cima para garantir a leitura do texto */
+        .site-background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(13, 17, 23, 0.6) 0%,
+                rgba(13, 17, 23, 0.75) 50%,
+                rgba(13, 17, 23, 0.9) 100%
+            );
+        }
+
+        /* Efeito de vidro */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Cards dos projetos */
+        .project-card {
+            transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(169, 112, 255, 0.75);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+        }
+
+        /* Acessibilidade */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- IMAGEM DE FUNDO -->
+    <div class="site-background" aria-hidden="true"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full glass-panel py-4 px-8 flex justify-between items-center">
+
+        <a href="#inicio"
+           class="text-xl font-bold text-neon"
+           aria-label="Voltar ao início">
+            &lt;Meu portfólio&gt;
+        </a>
+
+        <div class="hidden md:flex gap-6">
+            <a href="#sobre" class="hover:text-neon transition">Sobre</a>
+            <a href="#habilidades" class="hover:text-neon transition">Habilidades</a>
+            <a href="#projetos" class="hover:text-neon transition">Projetos</a>
+        </div>
+
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section id="inicio"
+            class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+
+            <h1 data-aos="fade-down"
+                data-aos-duration="1000"
+                class="text-5xl md:text-7xl font-bold mb-4">
+                Pedro Henrique
+            </h1>
+
+            <h2 data-aos="fade-up"
+                data-aos-duration="1200"
+                class="text-xl md:text-3xl text-gray-300 mb-8">
+
+                Desenvolvedor Full-Stack |
+                <span class="text-neon">Inteligência Artificial</span>
+
+            </h2>
+
+            <a href="#projetos"
+                data-aos="zoom-in"
+                data-aos-duration="1500"
+                class="bg-neon text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-600 transition transform hover:scale-105">
+
+                Ver meus projetos
+
+            </a>
+
+        </section>
+
+
+        <!-- SOBRE MIM -->
+        <section id="sobre"
+            class="py-20 px-8 max-w-5xl mx-auto scroll-mt-24">
+
+            <h3 data-aos="fade-right"
+                class="text-3xl font-bold mb-8 border-b-2 border-neon inline-block pb-2">
+
+                Sobre Mim
+
+            </h3>
+
+            <p data-aos="fade-up"
+                class="text-lg text-gray-300 leading-relaxed mb-6">
+
+                Sou estudante de Análise e Desenvolvimento de Sistemas na
+                <strong>Fatec Zona Leste</strong>, em São Paulo.
+
+                Sou focado em construir soluções escaláveis e interfaces modernas.
+                Tenho forte atuação na construção de arquiteturas back-end robustas,
+                desenvolvimento multiplataforma e na integração de
+                <strong>Agentes de IA</strong> em ecossistemas corporativos
+                para automação e análise avançada.
+
+            </p>
+
+        </section>
+
+
+        <!-- HABILIDADES -->
+        <section id="habilidades"
+            class="py-20 px-8 max-w-5xl mx-auto bg-gray-900/70 backdrop-blur-md rounded-3xl shadow-2xl scroll-mt-24">
+
+            <h3 data-aos="fade-right"
+                class="text-3xl font-bold mb-10 border-b-2 border-neon inline-block pb-2">
+
+                Tecnologias
+
+            </h3>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+                <div data-aos="flip-left" data-aos-delay="100"
+                    class="glass-panel p-4 rounded-xl hover:border-neon transition">
+                    React &amp; Next.js
+                </div>
+
+                <div data-aos="flip-left" data-aos-delay="200"
+                    class="glass-panel p-4 rounded-xl hover:border-neon transition">
+                    Node.js &amp; Express
+                </div>
+
+                <div data-aos="flip-left" data-aos-delay="300"
+                    class="glass-panel p-4 rounded-xl hover:border-neon transition">
+                    Java &amp; Spring Boot
+                </div>
+
+                <div data-aos="flip-left" data-aos-delay="400"
+                    class="glass-panel p-4 rounded-xl hover:border-neon transition">
+                    Python
+                </div>
+
+                <div data-aos="flip-up" data-aos-delay="100"
+                    class="glass-panel p-4 rounded-xl hover:border-neon transition">
+                    .NET MAUI (C#)
+                </div>
+
+                <div data-aos="flip-up" data-aos-delay="200"
+                    class="glass-panel p-4 rounded-xl hover:border-neon transition">
+                    Agentes de IA
+                </div>
+
+                <div data-aos="flip-up" data-aos-delay="300"
+                    class="glass-panel p-4 rounded-xl hover:border-neon transition">
+                    PostgreSQL &amp; MongoDB
+                </div>
+
+                <div data-aos="flip-up" data-aos-delay="400"
+                    class="glass-panel p-4 rounded-xl hover:border-neon transition">
+                    Supabase &amp; Tailwind
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJETOS -->
+        <section id="projetos"
+            class="py-20 px-8 max-w-5xl mx-auto scroll-mt-24">
+
+            <h3 data-aos="fade-right"
+                class="text-3xl font-bold mb-10 border-b-2 border-neon inline-block pb-2">
+
+                Projetos em Destaque
+
+            </h3>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- PROJETO 1: BUSCABUS -->
+                <!-- PROJETO 1: BUSCABUS -->
+<a href="https://busca-bus-web.onrender.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir o projeto BuscaBus em uma nova aba"
+    data-aos="fade-up"
+    data-aos-delay="100"
+    class="project-card glass-panel rounded-2xl overflow-hidden group block">
+
+    <!-- IMAGEM DO BUSCABUS -->
+    <div class="h-48 bg-gray-800/80 overflow-hidden relative">
+        <img src="./assets/busca.png" alt="BuscaBus Monitoramento" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+    </div>
+
+    <div class="p-6">
+        <h4 class="text-2xl font-bold mb-2 text-neon">
+            BuscaBus
+        </h4>
+        <p class="text-gray-400 text-sm mb-4">
+            React, Next.js, Tailwind CSS, MongoDB, API SPTrans
+        </p>
+        <p class="text-gray-300">
+            Plataforma de monitoramento em tempo real do transporte público, consumindo a API Olho Vivo da SPTrans para a comunidade da Fatec.
+        </p>
+        <span class="inline-flex items-center gap-2 mt-6 text-neon font-semibold text-sm">
+            Acessar projeto <span aria-hidden="true">↗</span>
+        </span>
+    </div>
+</a>
+
+
+                <!-- PROJETO 2: LA CASA DE SACOLA -->
+                <!-- PROJETO 2: LA CASA DE SACOLA -->
+<a href="https://la-casa-de-sacola-test.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir o projeto La Casa de Sacola em uma nova aba"
+    data-aos="fade-up"
+    data-aos-delay="300"
+    class="project-card glass-panel rounded-2xl overflow-hidden group block">
+
+    <!-- IMAGEM DO PROJETO -->
+    <div class="h-48 bg-gray-800/80 overflow-hidden relative">
+        <img src="./assets/lacasa.png" alt="La Casa de Sacola" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+    </div>
+
+    <div class="p-6">
+        <h4 class="text-2xl font-bold mb-2 text-neon">
+            La Casa de Sacola
+        </h4>
+        <p class="text-gray-400 text-sm mb-4">
+            Next.js, Supabase, Tailwind, Mercado Pago
+        </p>
+        <p class="text-gray-300">
+            E-commerce full-stack de catálogo virtual para um fabricante, com filtros complexos, banco de dados relacional e checkout.
+        </p>
+        <span class="inline-flex items-center gap-2 mt-6 text-neon font-semibold text-sm">
+            Acessar projeto <span aria-hidden="true">↗</span>
+        </span>
+    </div>
+</a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="py-8 text-center text-gray-500 border-t border-gray-800">
+
+        <p>Desenvolvido por Pedro Henrique © 2026</p>
+
+    </footer>
+
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            once: false,
+            mirror: true,
+            offset: 120
+        });
+    </script>
+
+</body>
+</html>
